@@ -1,0 +1,33 @@
+package Codsoft;
+import java.util.Random;
+import java.util.Scanner;
+
+public class NumberGame {
+    public static void main(String[] args) {
+        Random rand = new Random();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Welcome to the number game.");
+        System.out.println("To win this game, you just gave to guess the number which is in the range 1-100.");
+        System.out.println("Enter the no. of rounds you want to play between 1-5 - ");
+        int rounds = sc.nextInt();
+
+        int random = rand.nextInt(100);
+        System.out.println("Enter your guess - ");
+        for(int i=1;i<=rounds;i++) {
+            System.out.println("Round " + i + " - ");
+            int guess = sc.nextInt();
+            if(guess==random) {
+                System.out.println("Congratulations, you guessed the number.");
+                return;
+            } else if(guess<random) {
+                System.out.println("Your guess is smaller than the number.");
+            } else {
+                System.out.println("Your guess is greater than the number.");
+            }
+
+            if(i==rounds) {
+                System.out.println("Game ended.");
+            }
+        }
+    }
+}
