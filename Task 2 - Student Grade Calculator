@@ -1,0 +1,65 @@
+package Codsoft;
+import java.util.*;
+
+public class StudentGradeCalculator {
+    public static void totalMarks(int subjects[]) {
+        int marks = 0;
+        for(int i=0;i<subjects.length;i++) {
+            marks += subjects[i];
+        }
+        System.out.println("Total Marks - " + marks);
+    }
+
+    public static void averagePercentage(int subjects[]) {
+        int marks = 0;
+        int numOfsubjects = subjects.length;
+        for(int i=0;i<subjects.length;i++) {
+            marks += subjects[i];
+        }
+        int totalMarks = numOfsubjects*100;
+        double averagePercentage = (double) marks/totalMarks*100;
+        System.out.println("Average percentage - " + averagePercentage);
+    }
+
+    public static void gradeCalculation(int subjects[]) {
+        int marks = 0;
+        int numOfsubjects = subjects.length;
+        for(int i=0;i<subjects.length;i++) {
+            marks += subjects[i];
+        }
+        int totalMarks = numOfsubjects*100;
+        double averagePercentage = (double) marks/totalMarks*100;
+
+        if(averagePercentage>=90) {
+            System.out.println("A+");
+        } else if(averagePercentage>=80) {
+            System.out.println("A");
+        } else if(averagePercentage>=70) {
+            System.out.println("B");
+        } else if(averagePercentage>=60) {
+            System.out.println("C");
+        } else if(averagePercentage>=50) {
+            System.out.println("D");
+        } else{
+            System.out.println("F");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the no. of subjects :");
+        int numOfsubjects = sc.nextInt();
+
+        int subjects[] = new int[numOfsubjects];
+
+        for(int i=0;i<numOfsubjects;i++) {
+            System.out.println("Enter the marks in subject " + (i+1) + " : " );
+            subjects[i] = sc.nextInt();
+        }
+
+        System.out.println("Your result is : ");
+        totalMarks(subjects);
+        averagePercentage(subjects);
+        gradeCalculation(subjects);
+    }
+}
